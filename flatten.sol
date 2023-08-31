@@ -1,9 +1,13 @@
 // Sources flattened with hardhat v2.14.0 https://hardhat.org
 
+// File contracts/flatten.sol
+
+// Sources flattened with hardhat v2.14.0 https://hardhat.org
+
 // File @openzeppelin/contracts/utils/introspection/IERC165.sol@v4.8.3
 
-// SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1572,9 +1576,8 @@ library Counters {
 }
 
 
-// File contracts-bk/erc721.sol
+// File contracts/nft.sol
 
-// contracts/GameItem.sol
 pragma solidity ^0.8.0;
 
 
@@ -1582,9 +1585,9 @@ contract NFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() ERC721("RMUTT_DGS_NFT", "RMUTT_NFT") {}
 
-    mapping(string => uint256) tokenIDS;
+    constructor() ERC721("DPU_DGS_NFT", "DPU_DGS") {}
+
 
     function mint(address toAddress, string memory tokenURI)
         public
@@ -1593,14 +1596,9 @@ contract NFT is ERC721URIStorage {
         uint256 newItemId = _tokenIds.current();
         _mint(toAddress, newItemId);
         _setTokenURI(newItemId, tokenURI);
-        tokenIDS[tokenURI] = newItemId;
+
 
         _tokenIds.increment();
         return newItemId;
     }
-
-    function getLastedTokenId() public view returns (uint256)
-    {
-        return _tokenIds.current();
-    } 
 }

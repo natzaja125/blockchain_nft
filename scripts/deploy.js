@@ -12,7 +12,7 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
 
-  const DgsNFT = await hre.ethers.getContractFactory("Verifly");
+  const DgsNFT = await hre.ethers.getContractFactory("NFT");
   const dgsNft = await DgsNFT.deploy();
 
   await dgsNft.deployed();

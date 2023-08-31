@@ -24,7 +24,7 @@ module.exports = {
   solidity: {
     compilers: [
         {
-            version: "0.8.18",
+            version: "0.8.9",
             COMPILER_SETTINGS,
         }
     ],
@@ -32,18 +32,27 @@ module.exports = {
   
   etherscan: {
     apiKey: {
-      dgs: "{api_key_ether}"
+      dgs: "XE3SWWJ8RN7E998V4GTW8WHQVJJ3JNPXZ3",
+      rmutt: "XE3SWWJ8RN7E998V4GTW8WHQVJJ3JNPXZ3"
     },
     customChains: [
       {
-        network: "",
-        chainId: 2222,
+        network: "dgs",
+        chainId: 111,
         urls: {
-          apiURL: "",
-          browserURL: ""
+          apiURL: "http://172.17.254.14:4000/api",
+          browserURL: "http://172.17.254.14:4000"
+        }
+      },
+      {
+        network: "rmutt",
+        chainId: 101,
+        urls: {
+          apiURL: "http://172.21.243.174:4000/api",
+          browserURL: "http://172.21.243.174:4000"
         }
       }
-    ]
+    ],
   },
   networks: {
     localhost: {
@@ -58,11 +67,17 @@ module.exports = {
         chainId: 11155111,
     },
     dgs: {
-      url: "",
-      accounts: [`{private_key_wallet}`],
-      chainId: 222
+      url: "http://172.17.254.14:8545",
+      accounts: ['efa96e96c8fb1851115aec1b5d39b2499bbe8cea7c21c19d00923cd5ba2a6988'],
+      chainId: 111,
+      gasPrice: 50*1e9
+    },
+    rmutt: {
+      url: "http://172.21.243.174:8545",
+      accounts: ['efa96e96c8fb1851115aec1b5d39b2499bbe8cea7c21c19d00923cd5ba2a6988'],
+      chainId: 101,
+      gasPrice: 50*1e9
     }
-    
   },
   defaultNetwork: "localhost",
   paths: {
